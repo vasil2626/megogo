@@ -1,0 +1,26 @@
+.header__slider__image{
+    width: 100%;
+    max-width: 100%;
+}
+
+.header__image-blocks {
+    display: flex;
+    width: 82%;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.header__image-cards{
+    width: 219px;
+    height: 100px;
+}
+
+.header__image-cards{
+    margin: 0 21px 21px 0;
+}
+
+.header__mein{
+    width: 100%;
+    background-color: #fafafa;
+}

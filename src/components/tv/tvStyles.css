@@ -1,0 +1,26 @@
+.tv__component{
+    width: 133%;
+}
+
+.tv__component-items{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.tv__images-rows{
+    margin: 0 40px 40px 0;
+}
+
+.tv__images{
+    width: 124px;
+    height: 124px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@media screen and (max-width: 1591px ) {
+    .tv__component-items{
+        flex-wrap: nowrap;
+    }
+}

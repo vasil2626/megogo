@@ -1,0 +1,154 @@
+.top__five{
+    width: 100%;
+    background-color: #F1F1F1;
+}
+
+.top__five-tabs{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 50px;
+    padding: 66px 0 0;
+}
+
+.top__five-title{
+    margin: 0;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.tab-list{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.tabs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #a6a6a6;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tabs:not(:last-child){
+    margin: 0 30px 0 0;
+   
+}
+
+
+
+.content-container{
+    margin: 58px 50px 0;
+}
+
+.active-tabs{
+    color: #333;
+}
+  
+  .active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 2px);
+    height: 2px;
+    background: #FF6600;
+    
+  }
+  
+  .content {
+      display: none;
+  }
+  
+  .active-content {
+      display: flex;
+      padding: 0 0 118px;
+  }
+
+  .top__five-info{
+      width: 100%;
+  }
+
+  .top__five-list{
+    border-bottom: 1px solid #DEDEDE;
+    margin: 0 0 0 78px;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+  .top__five-items{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0 9px;
+  }
+
+  .list-items{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list__title{
+    margin: 0;
+    color: #333;
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  .list__description{
+    color: #a6a6a6;
+    font-size: 14px;
+    margin: 6px 0 0;
+  }
+
+  .info{
+    display: flex;
+    justify-content: space-between;
+    width: 10%;
+  }
+
+  .info-text{
+    margin-top: 5px;
+  }
+
+  .key{
+    font-size: 28px;
+    text-align: center;
+  }
+
+
+.top__five-list:hover span{
+    color: #FC363B;
+    cursor: pointer;
+}
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+    .top__five-tabs{
+        flex-direction: column;
+        align-items: center;
+    }
+    .active-content{
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0 10px;
+        
+    }
+    .top__five-info {
+        margin: 49px 0;
+    }
+    .top__five-list{
+        margin: 0;
+    }
+}
+
