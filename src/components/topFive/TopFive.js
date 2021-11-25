@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./topFive.css";
 import { movies, animations, showsSeries } from "./data";
 import Bannerimage from "./bannerImage/BannerImage";
-import Tabs from '../tabs/Tabs'
 
 
 
@@ -53,7 +52,7 @@ const TopFive = () => {
         </div>
         <div className="content-container">
           <div className={`content ${getActiveClass(1, "active-content")}`}>
-            <Bannerimage url={bannerImage} isHover={isHover}/>
+            <Bannerimage url={bannerImage} isHover={isHover} />
             <div className="top__five-info">
               {movies.map((movies) => {
                 return (
