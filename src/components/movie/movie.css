@@ -3,11 +3,90 @@
 }
 
 .movie__content{
+    position: relative;
+    top: 0;
+    left: 0;
     display: flex;
     margin: 0 auto;
     width: 76%;
     height: 321px;
     justify-content: center;
-    background-color: green;
 }
 
+
+.video__banner{
+    /* background-color: #000;
+    opacity: 0.4; */
+    width: 50%;
+    position: absolute;
+    top: 140px;
+    left: 39px;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.banner__info-image{
+    height: 150px;
+    width: 100px;
+}
+
+.trailer__info{
+    position: absolute;
+    top: 6px;
+    left: 128px;
+}
+
+.trailer__info span:not(:last-child){
+    margin-right: 20px;
+}
+
+.payment__video{
+    color: #00c3c3;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.trailer__title{
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+.video__rating{
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.video__age-limit{
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.video__main-title{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1.17;
+}
+
+.button__play-banner{
+    height: 45px;
+    width: 130px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #f60;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    color: #fff;
+    margin: 0px 0px 0 23px;
+    cursor: pointer;
+}
+
+
+.recommended__movies{
+    margin-bottom: 100px;
+}
