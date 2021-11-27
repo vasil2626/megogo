@@ -4,7 +4,7 @@ import ReactHlsPlayer from 'react-hls-player'
 
 const Videoplayer = () => {
     return (
-        <div>
+        <div className="video-player">
             <ReactHlsPlayer
                 src="https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
                 autoPlay={true}
