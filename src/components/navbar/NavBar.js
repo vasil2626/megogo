@@ -5,6 +5,7 @@ import { BsThreeDots } from 'react-icons/bs'
 import { AiOutlineSearch } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { CgClose } from "react-icons/cg"
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -49,9 +50,7 @@ const Navbar = () => {
                             </div> : null
                         }
                         <ul className={!menuOpen ? "hamburger__items" : "items"}>
-
-                        {/* <ul className="items"> */}
-                            <img src={logo} alt="logo" className={menuOpen ? "main_logo-img" : "main__logo-hid"} />
+                            <Link to="/"> <img src={logo} alt="logo" className={menuOpen ? "main_logo-img" : "main__logo-hid"} /></Link>
                             <li className="menue__item"> <span className="nav-links"> TV channels</span></li>
                             <li className="menue__item"> <span className="nav-links"> Premieres</span></li>
                             <li className="menue__item"> <span className="nav-links"> Movies</span></li>

@@ -36,17 +36,17 @@ const Header = () => {
             <div className="header">
                 <img src={sliderImg} alt="" className="header__slider__image" />
                 <div className="heder__categories">
-                <div className="header__image-blocks">
-                            {
-                                images.map((item, index) => {
-                                    return (
-                                        <div className="header__image-cards" key={index}>
-                                            <img src={item} alt="" className="Header-img" />
-                                        </div>
-                                    );
-                                })
-                            }
-                        </div>
+                    <div className="header__image-blocks">
+                        {
+                            images.map((item, index) => {
+                                return (
+                                    <div className="header__image-cards" key={index}>
+                                        <img src={item} alt="" className="Header-img" />
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
                     <div className="container">
                     </div>
                 </div>
@@ -63,22 +63,22 @@ const Header = () => {
                     {
                         Object.keys(data).map((item, i) => {
                             return (
-                                <Slider 
-                                title={item} 
-                                key={i}
-                                length={data[item].length}
+                                <Slider
+                                    title={item}
+                                    key={i}
+                                    length={data[item].length}
                                 >
-                                    <Categories 
-                                    content={data[item]}
-                                    length={getLength}
-                                     />
+                                    <Categories
+                                        content={data[item]}
+                                        length={getLength}
+                                    />
                                 </Slider>
                             )
                         })
 
                     }
-                    <TopFive/>
-                    <Staticvidgets/>
+                    <TopFive />
+                    <Staticvidgets />
                 </div>
             </div>
         </>
