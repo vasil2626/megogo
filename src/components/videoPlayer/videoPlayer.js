@@ -22,9 +22,13 @@ const Videoplayer = ({ fullScreen, getState }) => {
             return
         }
 
-        let durationTime =  (100 * Math.round(playerRef.current.currentTime)) / playerRef.current.duration
+        setTimeout(() =>{
+            let durationTime =  (100 * Math.round(playerRef.current.currentTime)) / playerRef.current.duration
+            setProgress(durationTime)
+            clearTimeout()
+        }, 50)
 
-        setProgress(durationTime)
+  
     }
 
     const handleProgress = (e) => {
@@ -43,9 +47,18 @@ const Videoplayer = ({ fullScreen, getState }) => {
         
         if(isDrag ){
 
-            let time = 55 * Math.round(playerRef.current.currentTime)  /  Math.round(videoRevived)
-            console.log( time, e );
-            setProgress( time )
+            setTimeout(() =>{
+                let time = 55 * Math.round(playerRef.current.currentTime)  /  Math.round(videoRevived)
+                console.log( time, e );
+                setProgress( time )
+                clearTimeout()
+            }, 50)
+
+          
+
+            // let time = 55 * Math.round(playerRef.current.currentTime)  /  Math.round(videoRevived)
+            // console.log( time, e );
+            // setProgress( time )
         }
     }
 
@@ -83,7 +96,7 @@ const Videoplayer = ({ fullScreen, getState }) => {
         if (isDrag) {
             window.addEventListener("mousemove", handleMove)
         }
-    }, [isDrag])
+    })
 
     useEffect(() => {
         window.addEventListener("mouseup", () => {
@@ -92,7 +105,7 @@ const Videoplayer = ({ fullScreen, getState }) => {
         return () => {
             window.removeEventListener("mousemove", handleMove)
         }
-    },[isDrag])
+    })
 
     return (
         <div className="video-player">

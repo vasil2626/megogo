@@ -45,21 +45,8 @@
     height: 8px;
     background-color: #FF332F;
     transition: 0.6s;
-    cursor: pointer;
-
+    pointer-events: none;
 }
-
-
-
-
-/* progress[value] {
-    appearance: none;
-    border: none;
-  }
-  progress[value]::-webkit-progress-value {
-    background-color: #FF332F;
-  } */
-
 
 .fullscreen__hid{
     display: none;
