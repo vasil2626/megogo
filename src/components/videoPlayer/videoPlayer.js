@@ -13,55 +13,46 @@ const Videoplayer = ({ fullScreen, getState }) => {
 
     const progressRef = useRef()
 
+
     const [progress, setProgress] = useState(0)
+
 
     const [isDrag, setIsDrag] = useState(false)
 
+
     const timeUpdate = (e) => {
-        if (isDrag) {
-            return
-        }
 
-        setTimeout(() =>{
-            let durationTime =  (100 * Math.round(playerRef.current.currentTime)) / playerRef.current.duration
+        const playerTime = Math.round(playerRef.current.currentTime)
+        const duration = playerRef.current.duration
+        if (!isDrag) {
+            let durationTime = (100 * playerTime / duration)
             setProgress(durationTime)
-            clearTimeout()
-        }, 50)
+        }
+        return
 
-  
     }
 
     const handleProgress = (e) => {
-        e.preventDefault()
 
         setIsDrag(true)
     }
 
     const handleMove = (e) => {
-        // console.log(e, 'eee');
-        
+        const progressBar = document.querySelector(".video__progress-control")
         let videoRevived = progressRef.current.getBoundingClientRect().x
-        let progressPosition = e.layerX
         playerRef.current.pause()
-        playerRef.current.currentTime = 12 * (Math.round(progressPosition)) / Math.round(videoRevived)
-        
-        if(isDrag ){
 
-            setTimeout(() =>{
-                let time = 55 * Math.round(playerRef.current.currentTime)  /  Math.round(videoRevived)
-                console.log( time, e );
-                setProgress( time )
-                clearTimeout()
-            }, 50)
+       setTimeout(() => {
+            progressBar.style.width = `${Math.round(e.clientX ) * Math.round(videoRevived ) / 1010}%`
+            playerRef.current.currentTime = 10 * Math.round(e.clientX) / Math.round(videoRevived)
 
-          
+        }, 100)
 
-            // let time = 55 * Math.round(playerRef.current.currentTime)  /  Math.round(videoRevived)
-            // console.log( time, e );
-            // setProgress( time )
-        }
     }
 
+    // const handleMouseUp = (e) => {
+    //     setIsDrag(false)
+    // }
 
     useEffect(() => {
         const video = document.getElementById("myVideo")
@@ -78,34 +69,29 @@ const Videoplayer = ({ fullScreen, getState }) => {
 
     useEffect(() => {
         const player = playerRef.current
-
         if (!fullScreen) {
             player.pause()
             player.currentTime = 0
         }
         player.addEventListener("timeupdate", timeUpdate)
-
-
         return () => {
             player.removeEventListener("timeupdate", timeUpdate)
         }
     })
 
-
     useEffect(() => {
         if (isDrag) {
             window.addEventListener("mousemove", handleMove)
         }
-    })
+    },[isDrag])
 
     useEffect(() => {
-        window.addEventListener("mouseup", () => {
+        window.addEventListener("mouseup", (e) =>{
             setIsDrag(false)
-        })
-        return () => {
             window.removeEventListener("mousemove", handleMove)
-        }
-    })
+        })
+
+    },[isDrag])
 
     return (
         <div className="video-player">
@@ -126,7 +112,6 @@ const Videoplayer = ({ fullScreen, getState }) => {
                     controls={true}
                     loop={false}
                     playerRef={playerRef}
-
                 />
                 <div className="videoControls">
                     <div className="container">
@@ -134,18 +119,24 @@ const Videoplayer = ({ fullScreen, getState }) => {
                             className="video__progress"
                             ref={progressRef}
                         >
-                            <div className="video__progress-point"
-                                // style={{ left: `${progress}%` }}
-                                style={{ left: `${progress}%` }}
-
-                                onMouseDown={(e) => handleProgress(e)}></div>
                             <div
                                 className="video__progress-control"
                                 style={{ width: `${progress}%` }}
+                            // ref={progressRef}
+
                             >
+                                <div className="video__progress-point"
+                                    onMouseDown={(e) => handleProgress(e)}
+
+                                >
+                                </div>
 
                             </div>
+                            {/* <div className="video__play-pause" onClick={handleClick}>
+                                    play
+                                </div> */}
                         </div>
+
                     </div>
 
                 </div>
