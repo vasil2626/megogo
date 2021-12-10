@@ -13,12 +13,9 @@ const Videoplayer = ({ fullScreen, getState }) => {
 
     const progressRef = useRef()
 
-
     const [progress, setProgress] = useState(0)
 
-
     const [isDrag, setIsDrag] = useState(false)
-
 
     const timeUpdate = (e) => {
 
@@ -39,14 +36,20 @@ const Videoplayer = ({ fullScreen, getState }) => {
 
     const handleMove = (e) => {
         const progressBar = document.querySelector(".video__progress-control")
-        let videoRevived = progressRef.current.getBoundingClientRect().x
+        let videoRevived = progressRef.current.getBoundingClientRect().width
+        // let videoRevived = progressRef.current.clientWidth
+        console.log(e);
+        const i = Math.floor(e.clientX * 90) / ( Math.floor(videoRevived)) 
         playerRef.current.pause()
+        if(videoRevived <=  e.screenX){
+            // progressBar.style.width = `${ (Math.round(e.screenX ) / Math.round(videoRevived )) * 5 }%`
 
-       setTimeout(() => {
-            progressBar.style.width = `${Math.round(e.clientX ) * Math.round(videoRevived ) / 1010}%`
-            playerRef.current.currentTime = 10 * Math.round(e.clientX) / Math.round(videoRevived)
+        }
+            progressBar.style.width = `${ i }%`
 
-        }, 100)
+            
+            // playerRef.current.currentTime = 10 * Math.round(e.clientX) / Math.round(videoRevived)
+console.log(i );
 
     }
 
@@ -122,7 +125,6 @@ const Videoplayer = ({ fullScreen, getState }) => {
                             <div
                                 className="video__progress-control"
                                 style={{ width: `${progress}%` }}
-                            // ref={progressRef}
 
                             >
                                 <div className="video__progress-point"
